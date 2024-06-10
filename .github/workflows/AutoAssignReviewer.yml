@@ -17,19 +17,18 @@ jobs:
       with:
         script: |
           const reviewers = ['serotonins', 'duckddud213']; // 리뷰어 아이디 목록
-          const assignees = [github.context.actor]; // 담당자는 pr 올리는 본인 등록
-
-          // PR 작성자 아이디
-          const prAuthor = github.context.actor;
-
-          // PR 작성자를 리뷰어 목록에서 제외
-          const filteredReviewers = reviewers.filter(reviewer => reviewer !== prAuthor);
-
+          
           // 비동기 함수로 감싸서 await 사용 가능하게 함
-          (async () => {
-            const pullRequestNumber = github.context.payload.pull_request.number;
-            const owner = github.context.repo.owner;
-            const repo = github.context.repo.repo;
+          (async ({github, context}) => {
+            const prAuthor = context.actor; // PR 작성자 아이디
+            const assignees = [prAuthor]; // 담당자는 pr 올리는 본인 등록
+
+            // PR 작성자를 리뷰어 목록에서 제외
+            const filteredReviewers = reviewers.filter(reviewer => reviewer !== prAuthor);
+
+            const pullRequestNumber = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
 
             // 리뷰어 추가
             if (filteredReviewers.length > 0) {
@@ -48,4 +47,4 @@ jobs:
               issue_number: pullRequestNumber,
               assignees
             });
-          })();
+          })({github, context});
