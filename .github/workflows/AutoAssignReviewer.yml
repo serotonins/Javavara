@@ -1,0 +1,35 @@
+name: Reviewer Assign
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Assign reviewers and assignee
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const reviewers = ['serotonins', 'duckddud213']; // 리뷰어 아이디 목록
+          const assignees = [github.actor]; // 담당자는 pr 올리는 본인 등록
+
+          // 비동기 함수로 감싸서 await 사용 가능하게 함
+          (async () => {
+            // 리뷰어 추가
+            await github.pulls.requestReviewers({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              reviewers
+            });
+
+            // 담당자 추가
+            await github.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              assignees
+            });
+          })();
