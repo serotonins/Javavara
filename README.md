@@ -4,11 +4,10 @@ _**자바 알고리즘 스터디** - 근데 이제 SQL과 객체지향을 곁들
 
 
 ## 📌 규칙
-|Mon|Tue|Wed|Thu|Fri|Sat|Sun|
-|-|-|-|-|-|-|-|
-|Boj|Programmers|SQL & Java|Boj|Programmers|SQL & Java|Free|
+|Mon|Tue|Wed|Thu|Fri|Weekend|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|Boj|Programmers|SQL & Java|Boj|Programmers|Free|
 
-- 주에 Boj, Programmers, SQL & JAVA 로테이션 2회 돌린다는 이야기
 - 다른 친구 전날 pr에 리뷰 다는 것까지가 한 세트
 - 달에 결석 1회까지는 허용
 - 초과 시 결석 1회 당 오프라인 스터디 때 다른 친구 한 명 음료 사기
