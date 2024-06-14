@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.map;
 
 import java.io.*;
 import java.util.*;

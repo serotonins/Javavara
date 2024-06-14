@@ -1,3 +1,5 @@
+package algorithm.divideAndConquer;
+
 import java.io.*;
 import java.util.*;
 
