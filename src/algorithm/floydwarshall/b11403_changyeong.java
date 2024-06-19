@@ -1,4 +1,4 @@
-package algorithm.floydwarshall;
+package algorithm.floydWarshall;
 
 import java.io.*;
 import java.util.*;
