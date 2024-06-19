@@ -1,0 +1,52 @@
+package algorithm.recursion;
+
+import java.io.*;
+import java.util.*;
+
+class Solution {
+    static int conversion, removed;
+    
+    public static void removeZero(String s){
+        String newStr = "";
+        
+        if(s.equals("1")){
+            return;
+        }
+
+        int cnt = 0;
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == '0'){
+                cnt++;
+            }
+        }
+
+        conversion++;
+        removed += cnt;
+        
+
+        for(int i = 0; i < s.length() - cnt; i++){
+            newStr += "1";
+        }
+
+        convertToBinary(newStr.length());
+    }
+
+    public static void convertToBinary(int num){
+        String binary = Integer.toBinaryString(num);
+        removeZero(binary);
+    }
+
+    public int[] solution(String s) {
+        int answer[] = new int[2];
+
+        conversion = 0;
+        removed = 0;
+
+        removeZero(s);
+
+        answer[0] = conversion;
+        answer[1] = removed;
+
+        return answer;
+    }
+}
