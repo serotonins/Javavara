@@ -16,7 +16,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const reviewers = ['serotonins', 'duckddud213', 'rlarbfl0702', 'Int-TRUE']; // 리뷰어 아이디 목록
+          const reviewers = ['serotonins', 'duckddud213', 'Int-TRUE']; // 리뷰어 아이디 목록
           
           // 비동기 함수로 감싸서 await 사용 가능하게 함
           (async ({github, context}) => {
