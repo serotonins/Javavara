@@ -1,6 +1,7 @@
-package algorithm;
+package algorithm.implement;
 
 import java.io.*;
+import java.util.*;
 
 public class b9655_changyeong {
     public static void main(String args[]) throws IOException {
